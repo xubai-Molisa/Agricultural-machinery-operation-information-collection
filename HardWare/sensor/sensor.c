@@ -211,7 +211,7 @@ CAMERA camer;
 USART_REC_FLAGE  port3;
 u8 TakeBuf[7]={0x55,0x48,0x00,0x31,0x00,0x02,0x23};
 u8 TakeBuf2[6]={0x55,0x45,0x00,0x01,0x00,0x23};
-__align(32) u8 PicBuf[10*1024];
+__ALIGNED(32) u8 PicBuf[10*1024];
 
 void Camera_IRQHandler(void)    //ÉãÏñÍ·Ä£¿éÖÐ¶Ïº¯Êý
 {
@@ -633,7 +633,7 @@ void GetVoiceData(void)
 	/*¡¾¾­Î³¶ÈËãÃæ»ý1¡¿ ======================================================*/
 	double radian(double d)
 	{
-			return d * PI / 180.0;   //??1° = p / 180
+			return d * PI / 180.0;   //??1?= p / 180
 	}
 
 	double get_distance(double lat1, double lng1, double lat2, double lng2)

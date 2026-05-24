@@ -1,0 +1,106 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cmake: configure",
+      "type": "shell",
+      "command": "${config:cmake.cmakePath}",
+      "args": [
+        "-S",
+        ".",
+        "-B",
+        "build/debug",
+        "-G",
+        "Ninja",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/cmake/arm-none-eabi-gcc.cmake",
+        "-DCMAKE_MAKE_PROGRAM=C:/Users/HW/AppData/Local/Microsoft/WinGet/Packages/Ninja-build.Ninja_Microsoft.Winget.Source_8wekyb3d8bbwe/ninja.exe",
+        "-DARM_GNU_TOOLCHAIN_BIN=C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "${config:cmake.cmakePath}",
+      "args": [
+        "--build",
+        "build/debug",
+        "--parallel"
+      ],
+      "dependsOn": "cmake: configure",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "probe",
+      "type": "shell",
+      "command": "${config:cortex-debug.openocdPath}",
+      "args": [
+        "-f",
+        "interface/stlink.cfg",
+        "-f",
+        "target/stm32f4x.cfg",
+        "-c",
+        "init; targets; shutdown"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "flash",
+      "type": "shell",
+      "command": "${config:cortex-debug.openocdPath}",
+      "args": [
+        "-f",
+        "interface/stlink.cfg",
+        "-f",
+        "target/stm32f4x.cfg",
+        "-c",
+        "program build/debug/MYPLAY.elf verify reset exit"
+      ],
+      "dependsOn": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "erase",
+      "type": "shell",
+      "command": "${config:cortex-debug.openocdPath}",
+      "args": [
+        "-f",
+        "interface/stlink.cfg",
+        "-f",
+        "target/stm32f4x.cfg",
+        "-c",
+        "init; reset halt; stm32f4x mass_erase 0; shutdown"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "serial: list ports",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Get-CimInstance Win32_SerialPort | Select-Object DeviceID,Name,Description | Format-Table -AutoSize"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "openocd: server",
+      "type": "shell",
+      "command": "${config:cortex-debug.openocdPath}",
+      "args": [
+        "-f",
+        "interface/stlink.cfg",
+        "-f",
+        "target/stm32f4x.cfg"
+      ],
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

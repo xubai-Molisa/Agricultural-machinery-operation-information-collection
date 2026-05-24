@@ -1,5 +1,6 @@
 #include "logic.h"
 #include "bmp.h"
+#include <stdlib.h>
 
 /* ¡¾Ä£¿é³õÊ¼»¯¡¿ ======================================================*/
 void module_init(void)

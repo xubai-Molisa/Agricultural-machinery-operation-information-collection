@@ -1,4 +1,5 @@
 #include "e2prom.h"
+#include <stdio.h>
 
 //¡¾E2PROM¶ÁÐ´¡¿======================================================*/
 #define  DATA_Size			256

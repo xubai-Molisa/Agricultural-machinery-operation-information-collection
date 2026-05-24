@@ -27,16 +27,58 @@ Project File Date:  05/24/2026
 <h2>Output:</h2>
 *** Using Compiler '5.06 update 4 (build 528)', folder: 'D:\Keil5\ARM\ARMCC\Bin'
 Build target 'MYPLAY'
-Error instantiating RTE components
-Error #543: Device STM32F429IGTx(STMicroelectronics) not found, pack 'Keil.STM32F4xx_DFP' is not installed
-Error #541: 'ARM::CMSIS:CORE:4.3.0' component is missing (previously found in pack 'ARM.CMSIS')
+compiling led.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\led.__i"'
+compiling oled.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\oled.__i"'
+assembling startup_stm32f429xx.s...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmAsm" --via "myplay\startup_stm32f429xx._ia"'
+compiling usart.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\usart.__i"'
+compiling tim.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\tim.__i"'
+compiling dma.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\dma.__i"'
+compiling freertos.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\freertos.__i"'
+compiling i2c.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\i2c.__i"'
+compiling sensor.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\sensor.__i"'
+compiling sdio.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\sdio.__i"'
+compiling gpio.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\gpio.__i"'
+compiling main.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\main.__i"'
+compiling e2prom.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\e2prom.__i"'
+compiling logic.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\logic.__i"'
+compiling ec20.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\ec20.__i"'
+compiling stm32f4xx_it.c...
+*** Error: CreateProcess failed, Command: '"D:\Keil5\ARM\ARMCC\Bin\ArmCC" --via "myplay\stm32f4xx_it.__i"'
+linking...
+--- Error: failed to execute 'D:\Keil5\ARM\ARMCC\Bin\ArmLink'
+"MYPLAY\MYPLAY.axf" - 1 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
 <h2>Collection of Component include folders:</h2>
   .\RTE\_MYPLAY
+  D:\Keil5\ARM\PACK\ARM\CMSIS\5.9.0\CMSIS\Core\Include
 
 <h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS\Core\Include\tz_context.h
 Target not created.
 Build Time Elapsed:  00:00:00
 </pre>
