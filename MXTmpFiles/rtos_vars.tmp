@@ -1,0 +1,26 @@
+/* Definitions for InitTask */
+osThreadId_t InitTaskHandle;
+const osThreadAttr_t InitTask_attributes = {
+#t.name = "InitTask",
+#t.stack_size = 1024 * 4,
+#t.priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for AcquireTask */
+osThreadId_t AcquireTaskHandle;
+const osThreadAttr_t AcquireTask_attributes = {
+#t.name = "AcquireTask",
+#t.stack_size = 1024 * 4,
+#t.priority = (osPriority_t) osPriorityAboveNormal,
+};
+/* Definitions for DisplayTask */
+osThreadId_t DisplayTaskHandle;
+const osThreadAttr_t DisplayTask_attributes = {
+#t.name = "DisplayTask",
+#t.stack_size = 768 * 4,
+#t.priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for DataMutex */
+osMutexId_t DataMutexHandle;
+const osMutexAttr_t DataMutex_attributes = {
+#t.name = "DataMutex"
+};
